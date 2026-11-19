@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twinkle — a children's book by Misty Young</title>
+<meta name="description" content="Twinkle, a children's picture book written by Misty Young.">
+<meta property="og:title" content="Twinkle — a children's book by Misty Young">
+<meta property="og:image" content="https://readtwinkle.com/cover.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;background-image:radial-gradient(ellipse at 20% 10%,rgba(124,58,237,.35),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.25),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.18),transparent 60%);min-height:100vh;overflow-x:hidden}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0}
+.sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.8;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
+main{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:40px 22px 60px;display:flex;flex-direction:column;align-items:center;gap:34px;text-align:center}
+.title{width:min(560px,90vw);height:auto;filter:drop-shadow(0 0 22px rgba(253,186,116,.55))}
+.by{font-family:Fredoka,sans-serif;font-size:clamp(20px,4vw,28px);color:#FDD9A0;margin:-14px 0 0;letter-spacing:.02em}
+.by span{display:block;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#C4B5FD;margin-bottom:4px}
+.cover{width:min(760px,100%);border-radius:14px;box-shadow:0 0 0 1px rgba(253,217,160,.35),0 30px 80px rgba(124,58,237,.45),0 0 120px rgba(251,146,60,.25)}
+.btn{display:inline-block;font-family:Fredoka,sans-serif;font-weight:600;font-size:20px;color:#1A1033;background:linear-gradient(135deg,#FDE68A,#FDBA74 55%,#F9A8D4);padding:16px 38px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(251,146,60,.4);transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 14px 40px rgba(251,146,60,.55)}
+.about{max-width:640px;font-size:18px;line-height:1.75;color:#EDE4FF}
+footer{position:relative;z-index:1;text-align:center;padding:0 20px 34px;font-size:13px;color:#A99BD6}
+</style>
+</head>
+<body>
+<div class="sky" id="sky"></div>
+<main>
+  <img class="title" src="title.png" alt="Twinkle">
+  <p class="by"><span>Written by</span>Misty Young</p>
+  <img class="cover" src="cover.jpg" alt="Twinkle book cover: a smiling glowing star surrounded by swirling light in a starry sky">
+  <a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a>
+  <p class="about">A children's picture book by Misty Young.</p>
+</main>
+<footer>&copy; Misty Young &middot; ReadTwinkle.com</footer>
+<script>
+(function(){var s=document.getElementById('sky');for(var i=0;i<110;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';var z=Math.random()*2+1;e.style.width=e.style.height=z+'px';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';s.appendChild(e);}})();
+</script>
+</body>
+</html>
