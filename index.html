@@ -20,7 +20,20 @@ body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;ba
 .shoot{position:fixed;z-index:5;pointer-events:none;width:150px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,236,170,.9) 70%,#fff);filter:drop-shadow(0 0 6px #FDE68A);transform-origin:right center;animation:shoot 1.1s ease-out forwards}
 .shoot:after{content:'';position:absolute;right:-3px;top:-3px;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px 4px #FDE68A}
 @keyframes shoot{0%{opacity:0;transform:rotate(var(--a)) translateX(0)}15%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateX(var(--d))}}
-.card,.cover,.big-quote,.phrases span{cursor:default}
+.sky.burst i{animation-duration:.7s!important;opacity:1;box-shadow:0 0 6px 1px #FDE68A}
+.soon{max-width:640px;margin:0 auto;text-align:center;padding:34px 26px;border-radius:24px;background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(236,72,153,.16));border:1px dashed rgba(253,217,160,.45)}
+.soon .pill{display:inline-block;font-family:Fredoka,sans-serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:#1A1033;background:#FDE68A;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.soon p{font-size:18px;line-height:1.7;color:#EDE4FF;margin:0}
+.visit{max-width:640px;margin:0 auto}
+.visit>p{text-align:center;font-size:18px;line-height:1.7;color:#EDE4FF;margin:0 0 10px}
+.visit .note{font-size:15px;color:#C4B5FD;margin-bottom:24px}
+.visit form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.visit input,.visit textarea{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:14px;border:1px solid rgba(253,217,160,.35);background:rgba(255,255,255,.06);color:#FFF3DC;font:inherit;font-size:16px}
+.visit input::placeholder,.visit textarea::placeholder{color:#B9AEDB}
+.visit .full{grid-column:1/-1}
+.visit button{grid-column:1/-1;justify-self:center;border:0;cursor:pointer}
+.sent{display:none;text-align:center;color:#FDE68A;font-family:Fredoka,sans-serif;font-size:20px;margin-top:16px}
+@media(max-width:600px){.visit form{grid-template-columns:1fr}}
 .sky i{position:absolute;border-radius:50%;background:#fff;opacity:.8;animation:tw 3s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
 section,header,footer{position:relative;z-index:1}
@@ -129,6 +142,43 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
 
 <section class="sec">
   <div class="wrap">
+    <div class="soon">
+      <span class="pill">Coming soon</span>
+      <h2 style="margin-bottom:10px">Twinkle Plushies</h2>
+      <p>A little Twinkle to hug, cuddle, and take along on every adventure. Stay tuned! ✨</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="readings">
+  <div class="wrap">
+    <h2>Invite Misty to Your School</h2>
+    <div class="visit">
+      <p>Misty loves visiting classrooms to read Twinkle, talk about trying your best, and help kids discover what makes them shine.</p>
+      <p class="note">A few complimentary readings are available for schools this season. After that, visits include a speaking fee or a minimum book order.</p>
+      <form action="https://formsubmit.co/5cfa84af49b6deb15f5571b7dc975232" method="POST">
+        <input type="hidden" name="_subject" value="School reading request from ReadTwinkle.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="http://readtwinkle.com/?sent=1#readings">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <input name="name" placeholder="Your name" required>
+        <input name="email" type="email" placeholder="Your email" required>
+        <input name="school" placeholder="School name" required>
+        <input name="city" placeholder="City and state">
+        <input name="grades" placeholder="Grade levels">
+        <input name="students" placeholder="About how many students?">
+        <input class="full" name="dates" placeholder="Preferred dates">
+        <textarea class="full" name="message" rows="4" placeholder="Anything else we should know?"></textarea>
+        <button class="btn" type="submit">Send Request ✨</button>
+      </form>
+      <p class="sent" id="sent">Thank you! Your request was sent. ✨</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
     <p class="dedication">For my nieces and nephews, may you always know that what makes you different may be exactly what makes you shine.<em>With all my love, Auntie Misty &#9825;</em></p>
     <p class="center" style="margin-top:34px"><a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a></p>
   </div>
@@ -144,7 +194,11 @@ function move(){tk=0;var y=window.scrollY;L.forEach(function(l){l[0].style.trans
 if(!calm)window.addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(move);}},{passive:true});
 var last=0;
 function shoot(){var t=Date.now();if(calm||t-last<900)return;last=t;var w=innerWidth,h=innerHeight,e=document.createElement('div');e.className='shoot';var x=w*(.05+Math.random()*.5),y=h*(.05+Math.random()*.35);e.style.left=x+'px';e.style.top=y+'px';e.style.setProperty('--a',(18+Math.random()*20)+'deg');e.style.setProperty('--d',(w*.45+200)+'px');document.body.appendChild(e);setTimeout(function(){e.remove();},1300);}
-document.querySelectorAll('.card,.cover,.big-quote,.phrases span,.title').forEach(function(el){el.addEventListener('mouseenter',shoot);el.addEventListener('touchstart',shoot,{passive:true});});
+var bt;function burst(){if(calm)return;sky.classList.add('burst');clearTimeout(bt);bt=setTimeout(function(){sky.classList.remove('burst');},1800);}
+function on(sel,fn){document.querySelectorAll(sel).forEach(function(el){el.addEventListener('mouseenter',fn);el.addEventListener('touchstart',fn,{passive:true});});}
+on('.cover',burst);
+on('a.btn',function(){burst();last=0;shoot();});
+if(/sent=1/.test(location.search)){var m=document.getElementById('sent');if(m)m.style.display='block';}
 })();
 </script>
 </body>
