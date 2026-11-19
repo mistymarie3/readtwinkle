@@ -4,41 +4,134 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Twinkle — a children's book by Misty Young</title>
-<meta name="description" content="Twinkle, a children's picture book written by Misty Young.">
+<meta name="description" content="Twinkle, a children's picture book by Misty Young about a little star who learns that what makes you different may be exactly what makes you shine.">
 <meta property="og:title" content="Twinkle — a children's book by Misty Young">
+<meta property="og:description" content="What makes you different may be exactly what makes you shine.">
 <meta property="og:image" content="https://readtwinkle.com/cover.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;background-image:radial-gradient(ellipse at 20% 10%,rgba(124,58,237,.35),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.25),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.18),transparent 60%);min-height:100vh;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.35),transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(236,72,153,.22),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.16),transparent 60%);min-height:100vh;overflow-x:hidden}
 .sky{position:fixed;inset:0;pointer-events:none;z-index:0}
-.sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.8;animation:tw 3s ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
-main{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:40px 22px 60px;display:flex;flex-direction:column;align-items:center;gap:34px;text-align:center}
+.sky i{position:absolute;border-radius:50%;background:#fff;opacity:.8;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
+section,header,footer{position:relative;z-index:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header{text-align:center;padding:42px 0 30px}
+header .wrap{display:flex;flex-direction:column;align-items:center;gap:28px}
 .title{width:min(560px,90vw);height:auto;filter:drop-shadow(0 0 22px rgba(253,186,116,.55))}
-.by{font-family:Fredoka,sans-serif;font-size:clamp(20px,4vw,28px);color:#FDD9A0;margin:-14px 0 0;letter-spacing:.02em}
-.by span{display:block;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#C4B5FD;margin-bottom:4px}
+.by{font-family:Fredoka,sans-serif;font-size:clamp(20px,4vw,28px);color:#FDD9A0;margin:-12px 0 0}
+.by span{display:block;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#C4B5FD;margin-bottom:4px}
 .cover{width:min(760px,100%);border-radius:14px;box-shadow:0 0 0 1px rgba(253,217,160,.35),0 30px 80px rgba(124,58,237,.45),0 0 120px rgba(251,146,60,.25)}
 .btn{display:inline-block;font-family:Fredoka,sans-serif;font-weight:600;font-size:20px;color:#1A1033;background:linear-gradient(135deg,#FDE68A,#FDBA74 55%,#F9A8D4);padding:16px 38px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(251,146,60,.4);transition:transform .2s ease,box-shadow .2s ease}
 .btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 14px 40px rgba(251,146,60,.55)}
-.about{max-width:640px;font-size:18px;line-height:1.75;color:#EDE4FF}
-footer{position:relative;z-index:1;text-align:center;padding:0 20px 34px;font-size:13px;color:#A99BD6}
+h2{font-family:Fredoka,sans-serif;font-weight:600;font-size:clamp(30px,5vw,44px);margin:0 0 18px;text-align:center;background:linear-gradient(90deg,#FDE68A,#FDBA74,#F9A8D4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec{padding:56px 0}
+.about-book{max-width:700px;margin:0 auto;text-align:center;font-size:19px;line-height:1.8;color:#EDE4FF}
+.about-book p{margin:0 0 16px}
+.big-quote{font-family:Fredoka,sans-serif;font-size:clamp(24px,4.4vw,36px);line-height:1.3;color:#FDD9A0;text-align:center;max-width:760px;margin:10px auto 0;text-shadow:0 0 24px rgba(251,146,60,.45)}
+.cast{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(253,217,160,.22);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(124,58,237,.35)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.card div{padding:14px 16px 18px;text-align:center}
+.card h3{font-family:Fredoka,sans-serif;font-weight:600;font-size:22px;margin:0 0 6px;color:#FDE68A}
+.card p{margin:0;font-size:15px;line-height:1.55;color:#DCD3F5}
+.phrases{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:900px;margin:0 auto}
+.phrases span{font-family:Fredoka,sans-serif;font-size:clamp(17px,2.6vw,22px);padding:12px 22px;border-radius:999px;background:rgba(124,58,237,.18);border:1px solid rgba(196,181,253,.35);color:#FFF3DC;animation:glow 4s ease-in-out infinite}
+.phrases span:nth-child(2n){animation-delay:1s;background:rgba(236,72,153,.16);border-color:rgba(249,168,212,.35)}
+.phrases span:nth-child(3n){animation-delay:2s;background:rgba(251,146,60,.14);border-color:rgba(253,186,116,.4)}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(253,186,116,0)}50%{box-shadow:0 0 22px rgba(253,186,116,.35)}}
+.author{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:center;max-width:900px;margin:0 auto}
+.author img{width:100%;border-radius:20px;box-shadow:0 0 0 1px rgba(253,217,160,.3),0 20px 60px rgba(124,58,237,.4)}
+.author p{font-size:17px;line-height:1.75;color:#EDE4FF;margin:0 0 14px}
+.author .name{color:#F9A8D4;font-weight:700}
+.soar{font-family:Fredoka,sans-serif;font-weight:700;font-size:20px;color:#F0ABFC;line-height:1.5;margin-top:6px}
+.dedication{text-align:center;font-size:18px;line-height:1.7;color:#EDE4FF;max-width:620px;margin:0 auto}
+.dedication em{display:block;margin-top:10px;font-family:Fredoka,sans-serif;font-style:normal;font-size:24px;color:#F9A8D4}
+.center{text-align:center}
+footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
+@media (max-width:860px){.cast{grid-template-columns:repeat(2,minmax(0,1fr))}.author{grid-template-columns:1fr;text-align:center}.author img{max-width:300px;margin:0 auto}}
 </style>
 </head>
 <body>
 <div class="sky" id="sky"></div>
-<main>
-  <img class="title" src="title.png" alt="Twinkle">
-  <p class="by"><span>Written by</span>Misty Young</p>
-  <img class="cover" src="cover.jpg" alt="Twinkle book cover: a smiling glowing star surrounded by swirling light in a starry sky">
-  <a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a>
-  <p class="about">A children's picture book by Misty Young.</p>
-</main>
-<footer>&copy; Misty Young &middot; ReadTwinkle.com</footer>
+
+<header>
+  <div class="wrap">
+    <img class="title" src="title.png" alt="Twinkle">
+    <p class="by"><span>Written by</span>Misty Young</p>
+    <img class="cover" src="cover.jpg" alt="Twinkle book cover: a smiling glowing star surrounded by swirling light in a starry sky">
+    <a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>About the Book</h2>
+    <div class="about-book">
+      <p>Twinkle is a little star with a big dream. All around, the other stars keep growing bigger and brighter, but Twinkle stays very small.</p>
+      <p>So Twinkle tries everything: stretching, spinning, and squeezing with all its might, until something unexpected happens that changes everything.</p>
+      <p>A sparkly story about trying, trying again, and discovering that you don&rsquo;t have to be like everyone else to shine. Includes activity pages to help young readers find their own special spark.</p>
+    </div>
+    <p class="big-quote">&ldquo;What makes you different may be exactly what makes you shine.&rdquo;</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Meet the Characters</h2>
+    <div class="cast">
+      <div class="card"><img style="object-position:50% 30%" src="readtwinkle-images/twinkle.jpg" alt="Twinkle squeezing with all its might"><div><h3>Twinkle</h3><p>A little star who tries with all its might.</p></div></div>
+      <div class="card"><img style="object-position:80% 50%" src="readtwinkle-images/bigstars.jpg" alt="The big stars watching Twinkle zoom by"><div><h3>The Big Stars</h3><p>Bright, bold, and big, everything Twinkle wants to be.</p></div></div>
+      <div class="card"><img style="object-position:70% 50%" src="readtwinkle-images/moon.jpg" alt="The Moon smiling as Twinkle soars past"><div><h3>The Moon</h3><p>A friendly face Twinkle zooms past on the way.</p></div></div>
+      <div class="card"><img style="object-position:20% 100%" src="readtwinkle-images/girl.jpg" alt="A little girl pointing at a shooting star"><div><h3>The Little Girl</h3><p>She looked up at just the right moment.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Words to Shine By</h2>
+    <div class="phrases">
+      <span>Keep trying.</span>
+      <span>Keep moving forward.</span>
+      <span>Your purpose is yours to discover.</span>
+      <span>Believe in your own light.</span>
+      <span>Your differences make you special.</span>
+      <span>SOAR! ✨</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>About the Author</h2>
+    <div class="author">
+      <img src="readtwinkle-images/author.jpg" alt="Misty Young, author of Twinkle">
+      <div>
+        <p><span class="name">Misty Young</span> is a writer, actress, model, dancer, and dreamer who knows what it feels like to wonder whether you belong.</p>
+        <p>When the idea for Twinkle came to her, Misty realized it was more than a story about a little star. It was also about learning that you do not have to be like everyone else to shine.</p>
+        <p>Twinkle was written for every child who has ever wondered, &ldquo;Can I do that too?&rdquo; Misty hopes this story reminds readers to try, keep trying, and discover what can happen when they believe in who they already are.</p>
+        <p class="soar">Keep trying. Keep moving forward. Your purpose is yours to discover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="dedication">For my nieces and nephews, may you always know that what makes you different may be exactly what makes you shine.<em>With all my love, Auntie Misty &#9825;</em></p>
+    <p class="center" style="margin-top:34px"><a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a></p>
+  </div>
+</section>
+
+<footer>&copy; 2026 Misty Young &middot; ReadTwinkle.com</footer>
 <script>
-(function(){var s=document.getElementById('sky');for(var i=0;i<110;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';var z=Math.random()*2+1;e.style.width=e.style.height=z+'px';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';s.appendChild(e);}})();
+(function(){var s=document.getElementById('sky');for(var i=0;i<120;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';var z=Math.random()*2+1;e.style.width=e.style.height=z+'px';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';s.appendChild(e);}})();
 </script>
 </body>
 </html>
