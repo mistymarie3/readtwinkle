@@ -14,7 +14,7 @@
 *{box-sizing:border-box}
 html,body{margin:0}
 html{scroll-behavior:smooth}
-body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.35),transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(236,72,153,.22),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.16),transparent 60%);min-height:100vh;overflow-x:hidden}
+body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#05030F;background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.24),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.14),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.10),transparent 60%);background-attachment:fixed;min-height:100vh;overflow-x:hidden}
 .sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .sky .ly{position:absolute;left:0;right:0;top:0;height:160%;will-change:transform}
 .shoot{position:fixed;z-index:5;pointer-events:none;width:150px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,236,170,.9) 70%,#fff);filter:drop-shadow(0 0 6px #FDE68A);transform-origin:right center;animation:shoot 1.1s ease-out forwards}
@@ -33,7 +33,14 @@ body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#0B0820;ba
 .visit .full{grid-column:1/-1}
 .visit button{grid-column:1/-1;justify-self:center;border:0;cursor:pointer}
 .sent{display:none;text-align:center;color:#FDE68A;font-family:Fredoka,sans-serif;font-size:20px;margin-top:16px}
-@media(max-width:600px){.visit form{grid-template-columns:1fr}}
+@media(max-width:600px){.visit form{grid-template-columns:1fr}.sec{padding:40px 0}.btn{font-size:18px;padding:14px 28px}.cast{gap:12px}.card h3{font-size:19px}.card p{font-size:14px}.by span{letter-spacing:.2em}}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:900px;margin:0 auto}
+.res a{display:block;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(196,181,253,.28);color:#FFF3DC;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+.res a:hover{transform:translateY(-3px);border-color:#FDE68A}
+.res b{display:block;font-family:Fredoka,sans-serif;font-weight:600;font-size:18px;color:#FDE68A;margin-bottom:4px}
+.res span{font-size:14px;line-height:1.5;color:#DCD3F5}
+.res-intro{text-align:center;color:#EDE4FF;font-size:17px;margin:0 auto 22px;max-width:620px}
+@media(max-width:860px){.res{grid-template-columns:1fr 1fr}}@media(max-width:520px){.res{grid-template-columns:1fr}}
 .sky i{position:absolute;border-radius:50%;background:#fff;opacity:.8;animation:tw 3s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.4)}}
 section,header,footer{position:relative;z-index:1}
@@ -181,6 +188,21 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
   <div class="wrap">
     <p class="dedication">For my nieces and nephews, may you always know that what makes you different may be exactly what makes you shine.<em>With all my love, Auntie Misty &#9825;</em></p>
     <p class="center" style="margin-top:34px"><a class="btn" href="https://www.amazon.com/dp/B0HLP54TH8" target="_blank" rel="noopener">Get Twinkle on Amazon ✨</a></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>For Parents &amp; Teachers</h2>
+    <p class="res-intro">More wonderful places to help little ones read, learn, and shine.</p>
+    <div class="res">
+      <a href="https://pbskids.org" target="_blank" rel="noopener"><b>PBS KIDS</b><span>Free games and shows that help kids learn and grow.</span></a>
+      <a href="https://www.readingrockets.org" target="_blank" rel="noopener"><b>Reading Rockets</b><span>Tips and activities to help young children love reading.</span></a>
+      <a href="https://www.scholastic.com/parents" target="_blank" rel="noopener"><b>Scholastic Parents</b><span>Book lists and reading ideas for every age.</span></a>
+      <a href="https://www.commonsensemedia.org" target="_blank" rel="noopener"><b>Common Sense Media</b><span>Reviews to help families choose great books, shows, and apps.</span></a>
+      <a href="https://childmind.org" target="_blank" rel="noopener"><b>Child Mind Institute</b><span>Parent guides on confidence, feelings, and growing up.</span></a>
+      <a href="https://littlefreelibrary.org/ourmap/" target="_blank" rel="noopener"><b>Little Free Library</b><span>Find free neighborhood book-sharing boxes near you.</span></a>
+    </div>
   </div>
 </section>
 
