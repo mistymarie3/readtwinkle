@@ -33,11 +33,16 @@ html{scroll-behavior:smooth}
 body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#05030F;background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.24),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.14),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.10),transparent 60%);background-attachment:fixed;min-height:100vh;overflow-x:hidden}
 .sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .sky .ly{position:absolute;left:0;right:0;top:0;height:160%;will-change:transform}
-.shoot{position:fixed;z-index:5;pointer-events:none;width:340px;height:5px;border-radius:5px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(249,168,212,.6) 40%,rgba(255,236,170,.95) 80%,#fff);filter:drop-shadow(0 0 10px #FDE68A) drop-shadow(0 0 24px rgba(249,168,212,.8));transform-origin:right center;animation:shoot 1.7s cubic-bezier(.3,.1,.3,1) forwards}
-.shoot:after{content:'';position:absolute;right:-10px;top:-10px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 0 22px 10px #FDE68A,0 0 60px 26px rgba(249,168,212,.55)}
-@keyframes shoot{0%{opacity:0;transform:rotate(var(--a)) translateX(0)}8%{opacity:1}85%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) translateX(var(--d))}}
-.flash{position:fixed;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at var(--x) var(--y),rgba(255,236,170,.35),rgba(249,168,212,.12) 35%,transparent 65%);animation:flash 1.4s ease-out forwards}
-@keyframes flash{0%{opacity:0}20%{opacity:1}100%{opacity:0}}
+.sh-head{position:fixed;z-index:6;pointer-events:none;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px #FFF3C4,0 0 16px 5px rgba(249,168,212,.55)}
+.sh-tail{position:fixed;z-index:5;pointer-events:none;height:1.5px;width:150px;margin-top:-.75px;transform-origin:100% 50%;background:linear-gradient(90deg,rgba(255,236,170,0),rgba(255,236,170,.75))}
+.spk{position:fixed;z-index:5;pointer-events:none;line-height:1;animation:spk .8s ease-out forwards}
+@keyframes spk{0%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2) rotate(90deg)}}
+.flash{position:fixed;inset:0;z-index:4;pointer-events:none;background:radial-gradient(circle at var(--x) var(--y),rgba(255,236,170,.22),rgba(249,168,212,.08) 35%,transparent 65%);animation:flash 1.2s ease-out forwards}
+@keyframes flash{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+.phrases span[data-tip]{position:relative;cursor:help}
+.phrases span[data-tip]:after{content:attr(data-tip);position:absolute;left:50%;top:calc(100% + 10px);transform:translate(-50%,-4px);width:max-content;max-width:240px;font-family:Nunito,sans-serif;font-size:15px;line-height:1.45;padding:10px 14px;border-radius:12px;background:#1A1033;border:1px solid rgba(253,217,160,.45);color:#FFF3DC;box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:3}
+.phrases span[data-tip]:hover:after,.phrases span[data-tip].show:after{opacity:1;transform:translate(-50%,0)}
+.phrases span.soar{cursor:pointer}
 .sky.burst i{animation-duration:.7s!important;opacity:1;box-shadow:0 0 6px 1px #FDE68A}
 .soon{max-width:640px;margin:0 auto;text-align:center;padding:34px 26px;border-radius:24px;background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(236,72,153,.16));border:1px dashed rgba(253,217,160,.45)}
 .soon .pill{display:inline-block;font-family:Fredoka,sans-serif;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:#1A1033;background:#FDE68A;padding:6px 14px;border-radius:999px;margin-bottom:14px}
@@ -140,12 +145,12 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
   <div class="wrap">
     <h2>Words to Shine By</h2>
     <div class="phrases">
-      <span>Keep trying.</span>
-      <span>Keep moving forward.</span>
-      <span>Your purpose is yours to discover.</span>
-      <span>Believe in your own light.</span>
-      <span>Your differences make you special.</span>
-      <span>SOAR! ✨</span>
+      <span tabindex="0" data-tip="Didn&#39;t work the first time? Try again a different way.">Keep trying.</span>
+      <span tabindex="0" data-tip="Just put one foot in front of the other.">Keep moving forward.</span>
+      <span tabindex="0" data-tip="Explore, play, and find what makes you happy.">Your purpose is yours to discover.</span>
+      <span tabindex="0" data-tip="Trust yourself.">Believe in your own light.</span>
+      <span tabindex="0" data-tip="Be unique. There&#39;s only one you!">Your differences make you special.</span>
+      <span class="soar" tabindex="0">SOAR! ✨</span>
     </div>
   </div>
 </section>
@@ -180,7 +185,7 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
     <h2>Invite Misty to Your School</h2>
     <div class="visit">
       <p>Misty loves visiting classrooms to read Twinkle, talk about trying your best, and help kids discover what makes them shine.</p>
-      <p class="note">A few complimentary readings are available for schools this season. After that, visits include a speaking fee or a minimum book order.</p>
+      <p class="note">Reach out for inquiries. Visits are subject to a minimum book order.</p>
       <form action="https://formsubmit.co/5cfa84af49b6deb15f5571b7dc975232" method="POST">
         <input type="hidden" name="_subject" value="School reading request from ReadTwinkle.com">
         <input type="hidden" name="_captcha" value="false">
@@ -233,11 +238,15 @@ var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').match
 function move(){tk=0;var y=window.scrollY;L.forEach(function(l){l[0].style.transform='translateY('+(-y*l[1])+'px)';});}
 if(!calm)window.addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(move);}},{passive:true});
 var last=0;
-function shoot(){var t=Date.now();if(calm||t-last<1500)return;last=t;var w=innerWidth,h=innerHeight,e=document.createElement('div');e.className='shoot';var x=-360,y=h*(.05+Math.random()*.25),ang=Math.atan2(h*.55,w)*180/Math.PI;e.style.left=x+'px';e.style.top=y+'px';e.style.setProperty('--a',ang+'deg');e.style.setProperty('--d',(Math.hypot(w,h*.55)+800)+'px');document.body.appendChild(e);var f=document.createElement('div');f.className='flash';f.style.setProperty('--x','50%');f.style.setProperty('--y',(y/h*100+25)+'%');document.body.appendChild(f);setTimeout(function(){e.remove();f.remove();},1900);}
+function spark(x,y,big){var c=['✦','✧','✦','•'],col=['#FFFFFF','#FFF3C4','#FDE68A','#F9A8D4','#C4B5FD'],s=document.createElement('i');s.className='spk';s.textContent=c[Math.random()*c.length|0];s.style.left=x+(Math.random()-.5)*8+'px';s.style.top=y+(Math.random()-.5)*8+'px';s.style.color=col[Math.random()*col.length|0];s.style.fontSize=(big?10:5)+Math.random()*(big?10:7)+'px';s.style.textShadow='0 0 6px '+s.style.color;s.style.setProperty('--dx',(Math.random()-.5)*(big?70:26)+'px');s.style.setProperty('--dy',(Math.random()-.5)*(big?70:26)+12+'px');document.body.appendChild(s);setTimeout(function(){s.remove();},850);}
+function shoot(){var t0=performance.now();if(calm||Date.now()-last<1200)return;last=Date.now();var w=innerWidth,h=innerHeight,x0=-30,y0=h*(.82+Math.random()*.12),x1=w+30,y1=h*(.04+Math.random()*.14),ang=Math.atan2(y1-y0,x1-x0),d=1050,hd=document.createElement('div'),tl=document.createElement('div');hd.className='sh-head';tl.className='sh-tail';tl.style.transform='rotate('+ang+'rad)';document.body.appendChild(tl);document.body.appendChild(hd);var f=document.createElement('div');f.className='flash';f.style.setProperty('--x','50%');f.style.setProperty('--y','45%');document.body.appendChild(f);setTimeout(function(){f.remove();},1300);
+function step(t){var p=Math.min(1,(t-t0)/d),q=1-Math.pow(1-p,2),x=x0+(x1-x0)*q,y=y0+(y1-y0)*q;hd.style.left=x+'px';hd.style.top=y+'px';tl.style.left=(x-150)+'px';tl.style.top=y+'px';spark(x,y);spark(x,y);if(p<1)requestAnimationFrame(step);else{hd.remove();tl.remove();}}requestAnimationFrame(step);}
 var bt;function burst(){if(calm)return;sky.classList.add('burst');clearTimeout(bt);bt=setTimeout(function(){sky.classList.remove('burst');},1800);}
 function on(sel,fn){document.querySelectorAll(sel).forEach(function(el){el.addEventListener('mouseenter',fn);el.addEventListener('touchstart',fn,{passive:true});});}
 on('.cover',burst);
 on('a.btn',function(){burst();last=0;shoot();});
+on('.phrases .soar',function(){burst();if(calm)return;var r=this.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;for(var i=0;i<26;i++)spark(cx+(Math.random()-.5)*r.width,cy+(Math.random()-.5)*r.height,true);});
+document.querySelectorAll('.phrases span[data-tip]').forEach(function(el){el.addEventListener('click',function(){var on=el.classList.contains('show');document.querySelectorAll('.phrases .show').forEach(function(x){x.classList.remove('show');});if(!on)el.classList.add('show');});});
 if(/sent=1/.test(location.search)){var m=document.getElementById('sent');if(m)m.style.display='block';}
 })();
 </script>
