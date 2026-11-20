@@ -30,8 +30,8 @@
 *{box-sizing:border-box}
 html,body{margin:0}
 html{scroll-behavior:smooth}
-body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#05030F;background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.24),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.14),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.10),transparent 60%);background-attachment:fixed;min-height:100vh;overflow-x:hidden}
-.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+body{font-family:Nunito,system-ui,sans-serif;color:#FFF3DC;background:#05030F;min-height:100vh;overflow-x:hidden}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;transform:translateZ(0);background-image:radial-gradient(ellipse at 20% 5%,rgba(124,58,237,.24),transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(236,72,153,.14),transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.10),transparent 60%);}
 .sky .ly{position:absolute;left:0;right:0;top:0;height:160%;will-change:transform}
 .sh-head{position:fixed;z-index:6;pointer-events:none;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px #FFF3C4,0 0 16px 5px rgba(249,168,212,.55)}
 .sh-tail{position:fixed;z-index:5;pointer-events:none;height:1.5px;width:150px;margin-top:-.75px;transform-origin:100% 50%;background:linear-gradient(90deg,rgba(255,236,170,0),rgba(255,236,170,.75))}
