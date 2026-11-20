@@ -233,7 +233,7 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
 <script>
 (function(){
 var sky=document.getElementById('sky'),L=[];
-[[70,.03],[60,.09]].forEach(function(c,j){var ly=document.createElement('div');ly.className='ly';for(var i=0;i<c[0];i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';var z=Math.random()*2+(j?1.5:.8);e.style.width=e.style.height=z+'px';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';ly.appendChild(e);}sky.appendChild(ly);L.push([ly,c[1]]);});
+[[110,.03],[90,.09]].forEach(function(c,j){var ly=document.createElement('div');ly.className='ly';for(var i=0;i<c[0];i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';var z=Math.random()*2+(j?1.5:.8);e.style.width=e.style.height=z+'px';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';ly.appendChild(e);}sky.appendChild(ly);L.push([ly,c[1]]);});
 var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,tk=0;
 function move(){tk=0;var y=window.scrollY;L.forEach(function(l){l[0].style.transform='translateY('+(-y*l[1])+'px)';});}
 if(!calm)window.addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(move);}},{passive:true});
@@ -243,6 +243,7 @@ function shoot(){var t0=performance.now();if(calm||Date.now()-last<1200)return;l
 function step(t){var p=Math.min(1,(t-t0)/d),q=1-Math.pow(1-p,2),x=x0+(x1-x0)*q,y=y0+(y1-y0)*q;hd.style.left=x+'px';hd.style.top=y+'px';tl.style.left=(x-150)+'px';tl.style.top=y+'px';spark(x,y);spark(x,y);if(p<1)requestAnimationFrame(step);else{hd.remove();tl.remove();}}requestAnimationFrame(step);}
 var bt;function burst(){if(calm)return;sky.classList.add('burst');clearTimeout(bt);bt=setTimeout(function(){sky.classList.remove('burst');},1800);}
 function on(sel,fn){document.querySelectorAll(sel).forEach(function(el){el.addEventListener('mouseenter',fn);el.addEventListener('touchstart',fn,{passive:true});});}
+setInterval(function(){if(!calm&&!document.hidden)spark(Math.random()*innerWidth,Math.random()*innerHeight*.9,true);},700);
 on('.cover',burst);
 on('a.btn',function(){burst();last=0;shoot();});
 on('.phrases .soar',function(){burst();if(calm)return;var r=this.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;for(var i=0;i<26;i++)spark(cx+(Math.random()-.5)*r.width,cy+(Math.random()-.5)*r.height,true);});
