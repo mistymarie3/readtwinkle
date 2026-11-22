@@ -103,6 +103,20 @@ h2{font-family:Fredoka,sans-serif;font-weight:600;font-size:clamp(30px,5vw,44px)
 .center{text-align:center}
 footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
 @media (max-width:860px){.cast{grid-template-columns:repeat(2,minmax(0,1fr))}.author{grid-template-columns:1fr;text-align:center}.author img{max-width:300px;margin:0 auto}}
+
+.look{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.look img{width:100%;display:block;border-radius:16px;border:1px solid rgba(253,217,160,.35);box-shadow:0 10px 30px rgba(0,0,0,.45);cursor:zoom-in}
+.look-note{text-align:center;margin:16px 0 0;opacity:.85}
+.prints{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.prints a{display:block;width:220px;text-decoration:none;color:#FFF3DC;text-align:center}
+.prints img{width:100%;border-radius:12px;background:#fff;display:block;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.prints span{display:block;margin-top:10px;font-weight:700}
+#lkbox{position:fixed;inset:0;z-index:50;background:rgba(5,3,15,.94);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+#lkbox.on{display:flex}#lkbox img{max-width:94vw;max-height:90vh;border-radius:14px}
+@media (max-width:600px){.look{grid-template-columns:1fr}}
+
+@media (hover:hover) and (pointer:fine){html,body,a,button,.look img,span[data-tip]{cursor:url(pfft-cursor2.png) 1 0,auto;cursor:-webkit-image-set(url(pfft-cursor2.png) 1x,url(pfft-cursor2@2x.png) 2x) 1 0,auto;cursor:image-set(url(pfft-cursor2.png) 1x,url(pfft-cursor2@2x.png) 2x) 1 0,auto}}
+.visit select option{color:#1A1033}
 </style>
 </head>
 <body>
@@ -126,6 +140,20 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
       <p>A sparkly story about trying, trying again, and discovering that you don&rsquo;t have to be like everyone else to shine. Includes activity pages to help young readers find their own special spark.</p>
     </div>
     <p class="big-quote">&ldquo;What makes you different may be exactly what makes you shine.&rdquo;</p>
+  </div>
+</section>
+
+
+<section class="sec" id="look-inside">
+  <div class="wrap">
+    <h2>Look Inside</h2>
+    <div class="look">
+      <img loading="lazy" decoding="async" src="look-1.jpg" alt="Twinkle page: One night, high above the world, a little star named Twinkle was born.">
+      <img loading="lazy" decoding="async" src="look-2.jpg" alt="Twinkle page: But Twinkle stayed very small. When will I shine like them?">
+      <img loading="lazy" decoding="async" src="look-3.jpg" alt="Twinkle page: Then one night, Twinkle thought, I need to try harder!">
+      <img loading="lazy" decoding="async" src="look-4.jpg" alt="Twinkle page: Then Twinkle had one last idea.">
+    </div>
+    <p class="look-note">What was Twinkle&rsquo;s last idea? Find out in the book ✨</p>
   </div>
 </section>
 
@@ -218,6 +246,32 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
   </div>
 </section>
 
+<section class="sec" id="signed">
+  <div class="wrap">
+    <h2>Get a Signed Copy</h2>
+    <div class="visit">
+      <p>Want Twinkle signed for someone special? Tell me who it&#8217;s for and I&#8217;ll sign it and mail it to you.</p>
+      <p class="note">I&#8217;ll email you the total (book plus shipping). Pay by Venmo, Cash App, or Zelle.</p>
+      <form action="https://formsubmit.co/5cfa84af49b6deb15f5571b7dc975232" method="POST">
+        <input type="hidden" name="_subject" value="Signed copy request from ReadTwinkle.com">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://readtwinkle.com/?signed=1#signed">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <input name="name" placeholder="Your name" required>
+        <input name="email" type="email" placeholder="Your email" required>
+        <input name="copies" type="number" min="1" placeholder="How many copies?" required>
+        <input name="sign_to" placeholder="Who should I sign it to?">
+        <select class="full" name="payment" required style="width:100%;box-sizing:border-box;padding:14px 16px;border-radius:14px;border:1px solid rgba(253,217,160,.35);background:rgba(255,255,255,.06);color:#FFF3DC;font:inherit"><option value="" disabled selected>How will you pay?</option><option>Venmo</option><option>Cash App</option><option>Zelle</option></select>
+        <textarea class="full" name="address" rows="3" placeholder="Shipping address" required></textarea>
+        <textarea class="full" name="message" rows="3" placeholder="A special message to include? (optional)"></textarea>
+        <button class="btn" type="submit">Request a Signed Copy ✨</button>
+      </form>
+      <p class="sent" id="signedsent">Thank you! I&#8217;ll email you the total soon. ✨</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <p class="dedication">For my nieces and nephews, may you always know that what makes you different may be exactly what makes you shine.<em>With all my love, Auntie Misty &#9825;</em></p>
@@ -240,6 +294,7 @@ footer{text-align:center;padding:20px 20px 40px;font-size:13px;color:#A99BD6}
   </div>
 </section>
 
+<div id="lkbox"><img alt=""></div><script>(function(){var b=document.getElementById('lkbox'),i=b.querySelector('img');document.querySelectorAll('.look img').forEach(function(m){m.addEventListener('click',function(){i.src=m.src;i.alt=m.alt;b.classList.add('on')})});b.addEventListener('click',function(){b.classList.remove('on')})})();</script>
 <footer>&copy; 2026 Misty Young &middot; ReadTwinkle.com</footer>
 <script>
 (function(){
@@ -261,7 +316,8 @@ on('.phrases .soar',function(){burst();if(calm)return;var r=this.getBoundingClie
 document.querySelectorAll('.phrases span[data-tip]').forEach(function(el){el.addEventListener('click',function(){var on=el.classList.contains('show');document.querySelectorAll('.phrases .show').forEach(function(x){x.classList.remove('show');});if(!on){el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show');},2500);}});});
 document.addEventListener('click',function(e){if(!e.target.closest('.phrases span[data-tip]'))document.querySelectorAll('.phrases .show').forEach(function(x){x.classList.remove('show');});});
 if(/plush=1/.test(location.search)){var pm=document.getElementById('plushsent');if(pm)pm.style.display='block';}
-if(/sent=1/.test(location.search)){var m=document.getElementById('sent');if(m)m.style.display='block';}
+if(/signed=1/.test(location.search)){var sm=document.getElementById('signedsent');if(sm)sm.style.display='block';}
+if(/[?&]sent=1/.test(location.search)){var m=document.getElementById('sent');if(m)m.style.display='block';}
 })();
 </script>
 </body>
